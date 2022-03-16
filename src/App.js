@@ -17,7 +17,12 @@ const singerStyle ={
 
 function App() {
   const hero =['Rubel', 'BappaRaz', 'Salman Khan', 'The king'];
-  
+  const products = [
+    {name:'Laptop', price:'20000'},
+    {name:'Mobile', price:'10000'},
+    {name:'Watch', price:'5000'},
+    {name:'Tablet', price:'7990'},
+  ]
   return (
     <div className="App">
       {
@@ -41,9 +46,12 @@ function App() {
 
 
       {/* ******** Products ******** */}
-      <Product name="laptop" price="20,000" ></Product>
+      {
+        products.map(product => <Product name={product.name} price={product.price}></Product>)
+      }
+      {/* <Product name="laptop" price="20,000" ></Product>
       <Product name="Mobile" price="2,000" ></Product>
-      <Product name="Watch" price="4,000" ></Product>
+      <Product name="Watch" price="4,000" ></Product> */}
     </div>
   );
 }

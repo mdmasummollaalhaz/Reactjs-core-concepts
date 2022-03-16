@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const number = 555;
 const singers = [
@@ -26,7 +26,8 @@ function App() {
   ]
   return (
     <div className="App">
-      <Counert></Counert>
+      {/* <Counert></Counert> */}
+      <ExternalUsers></ExternalUsers>
     </div>
   );
 }
@@ -63,6 +64,33 @@ function App() {
 */
 
 // =========== Component start from here =====================
+
+function ExternalUsers(){
+  const [users, setUsers] = useState([]);
+  useEffect( ()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, []);
+  return(
+    <div>
+      <h2>External Users</h2>
+      {/* <p>{users.length}</p> */}
+      {
+        users.map(user => <User name={user.name} email={user.email}></User>)
+      }
+    </div>
+  )
+};
+
+function User(props){
+  return(
+    <div className='user'>
+      <h4>Name: {props.name}</h4>
+      <p>Email: {props.email}</p>
+    </div>
+  )
+};
 
 function Counert(){
   const [count, setCount] = useState(4);

@@ -16,7 +16,8 @@ const singerStyle ={
 }
 
 function App() {
-  const hero =['Rubel', 'BappaRaz', 'Salman Khan', 'The king']
+  const hero =['Rubel', 'BappaRaz', 'Salman Khan', 'The king'];
+  
   return (
     <div className="App">
       {
@@ -37,10 +38,18 @@ function App() {
       <h2>New Component</h2>
       <Friend phone="029992" movie="The king"></Friend>
       <Friend phone="2239992"></Friend>
+
+
+      {/* ******** Products ******** */}
+      <Product name="laptop" price="20,000" ></Product>
+      <Product name="Mobile" price="2,000" ></Product>
+      <Product name="Watch" price="4,000" ></Product>
     </div>
   );
 }
 
+
+// =========== Component start from here =====================
 function Person(props){
   // console.log(props);
   return (
@@ -60,5 +69,17 @@ function Friend(props){
     </div>
   )
 }
+
+
+// Part 2
+function Product(props){
+  return(
+    <div className='product'>
+      <h3>Name: {props.name}</h3>
+      <p>Price: {props.price}</p>
+    </div>
+  )
+}
+
 
 export default App;

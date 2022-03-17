@@ -75,10 +75,12 @@ function ExternalUsers(){
   return(
     <div>
       <h2>External Users</h2>
-      {/* <p>{users.length}</p> */}
-      {
-        users.map(user => <User name={user.name} email={user.email}></User>)
-      }
+      <div className='users'>
+        {/* <p>{users.length}</p> */}
+        {
+          users.map(user => <User name={user.name} email={user.email}></User>)
+        }
+      </div>
     </div>
   )
 };
